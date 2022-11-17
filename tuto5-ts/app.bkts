@@ -1,0 +1,65 @@
+//Crear una clase para archivos multimedia
+// encontrar propiedades en comun para aplicar herencia
+class MultimediaFile {
+  constructor(
+    public fechaCreacion: string = "",
+    public fechaModificacion: string = "",
+    public nombre: string = "",
+    public tipoElemento: string = ""
+  ) {}
+
+  desplegarInformacion(): void {
+    const informacion: string =
+      this.nombre +
+      " " +
+      this.tipoElemento +
+      " " +
+      this.fechaModificacion +
+      " " +
+      this.fechaCreacion;
+    console.log(informacion);
+  }
+}
+
+class DynamicFile extends MultimediaFile {
+  constructor(
+    public fechaCreacion: string = "",
+    public fechaModificacion: string = "",
+    public nombre: string = "",
+    public tipoElemento: string = "",
+    public duracion: string = ""
+  ) {
+    super(fechaCreacion, fechaModificacion, nombre, tipoElemento);
+  }
+
+  detener(): void {
+    console.log("Deteniendo...");
+  }
+  pausar(): void {
+    console.log("Pausando...");
+  }
+  reproducir(): void {
+    console.log("Reproduciendo...");
+  }
+}
+
+class StaticFile extends MultimediaFile {
+  Editar(): void {
+    console.log("Editando...");
+  }
+}
+
+const mFile = new MultimediaFile(
+  "13/12/2022",
+  "12/12/2022",
+  "miarchiv.txt",
+  "text"
+);
+// mFile.nombre = "miarchiv.txt";
+// mFile.tipoElemento = "text";
+// mFile.fechaCreacion = " 12/12/2022";
+// mFile.fechaModificacion = "13/12/2022";
+mFile.desplegarInformacion();
+
+const dFile = new DynamicFile();
+const sFile = new StaticFile();
